@@ -12,13 +12,13 @@
       my-builder = pkgs.darwin.linux-builder.override {
         modules = [
         {
-          virtualisation.darwin-builder.diskSize = 40 * 1024;
+          virtualisation.darwin-builder.diskSize = 60 * 1024;
         }
       ];
     };
     in {
         packages.${system}.default = my-builder;
-        # Allow running via 'nix run'
+        # run via 'nix run'
         apps.${system}.default = {
           type = "app";
           program = "${my-builder}/bin/create-builder";
